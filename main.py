@@ -23,3 +23,12 @@ def save(data: SaveModel):
         return {"status": "success"}
     except:
         return {"status": "error"}
+
+
+@app.get("/")
+def read():
+    try:
+        file = open('data.txt', 'r')
+        return {"text": file.read()}
+    except:
+        return {"status": "error"}
